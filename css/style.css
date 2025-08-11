@@ -287,18 +287,19 @@ input, button{
   top: 78vw;
   width: 100%;
   text-align: center;
+  padding-bottom: 10px;
 }
 
 .doctor .text h4{
   color: #fff;
   font-style: italic;
-  font-size: 4.4vw;
+  font-size: 4.1vw;
   padding: 5px 0;
 }
 .doctor .text h5{
   background: #fff;
   color: #E15A43;
-  font-size: 4.1vw;
+  font-size: 3.8vw;
   font-style: italic;
 }
 
