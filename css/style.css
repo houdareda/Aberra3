@@ -661,7 +661,7 @@ body.thanks_page_page {
 
 @media (min-width: 576px) {
   body.thanks_page_page {
-    background: #0f0f0f;
+    background: #313131;
     min-height: 100vh;
   }
 }
@@ -674,7 +674,7 @@ body.thanks_page_page {
 
   .thanks_page h3 {
     font-size: 25px;
-    margin: 00px 0 8px;
+    margin: 0px auto 8px;
   }
 
   .thanks_page .text img {
