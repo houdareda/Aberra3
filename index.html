@@ -14,11 +14,11 @@
   </head>
 
   <body>
-    <div class="flex flexone">
+    <div class="flex">
       <!-- hero Section -->
       <section class="hero">
         <div class="top_img">
-          <img src="images/hero-img.jpg" alt="" />
+          <img src="images/hero-img.webp" alt="" />
         </div>
 
         <div class="content">
@@ -59,7 +59,7 @@
 
           <div class="btn_img">
             <a href="#submit-now"
-              ><img src="images/white-btn.png" alt="button"
+              ><img src="images/white-btn.webp" alt="button"
             /></a>
           </div>
         </div>
@@ -68,33 +68,33 @@
 
       <section class="results">
         <div class="div">
-          <div class="swiper mySwiper">
+          <div class="swiper mySwiper mySwiper1">
             <h3>نتيجة نسف وشد ترهلات اللغد والوجه</h3>
             <div class="swiper-wrapper">
-              <div class="swiper-slide"><img src="images/s1.png" alt="" /></div>
-              <div class="swiper-slide"><img src="images/s2.png" alt="" /></div>
-              <div class="swiper-slide"><img src="images/s3.png" alt="" /></div>
-              <div class="swiper-slide"><img src="images/s4.png" alt="" /></div>
+              <div class="swiper-slide"><img src="images/s1.webp" alt="" /></div>
+              <div class="swiper-slide"><img src="images/s2.webp" alt="" /></div>
+              <div class="swiper-slide"><img src="images/s3.webp" alt="" /></div>
+              <div class="swiper-slide"><img src="images/s4.webp" alt="" /></div>
             </div>
 
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
           </div>
 
-          <div class="swiper mySwiper">
+          <div class="swiper mySwiper mySwiper2">
             <h3>نتيجة نســف وشــد ترهــلات الذراعيــن</h3>
             <div class="swiper-wrapper">
               <div class="swiper-slide">
-                <img src="images/s1a.png" alt="" />
+                <img src="images/s1a.webp" alt="" />
               </div>
               <div class="swiper-slide">
-                <img src="images/s2a.png" alt="" />
+                <img src="images/s2a.webp" alt="" />
               </div>
               <div class="swiper-slide">
-                <img src="images/s3a.png" alt="" />
+                <img src="images/s3a.webp" alt="" />
               </div>
               <div class="swiper-slide">
-                <img src="images/s4a.png" alt="" />
+                <img src="images/s4a.webp" alt="" />
               </div>
             </div>
 
@@ -105,7 +105,7 @@
 
         <div class="btn_img">
           <a href="#submit-now"
-            ><img src="images/move-btn.png" alt="button"
+            ><img src="images/move-btn.webp" alt="button"
           /></a>
         </div>
       </section>
@@ -113,7 +113,7 @@
 
     <div class="flex flex-reverse">
       <section class="doctor">
-        <img src="images/img-doc.jpg" alt="" />
+        <img src="images/img-doc.webp" alt="" />
 
         <div class="text">
 
@@ -125,13 +125,13 @@
 
 
           <div class="save">
-            <img src="images/save.png" alt="">
+            <img src="images/save.webp" alt="">
           </div>
 
 
           <div class="btn_img">
             <a href="#submit-now">
-              <img src="images/white-btn.png" alt="button"/>
+              <img src="images/white-btn.webp" alt="button"/>
             </a>
           </div>
 
@@ -141,11 +141,11 @@
 
 
       <section class="how_work">
-        <img src="images/testm.jpg" alt="" />
+        <img class="img_how_work" src="images/testm.webp" alt="" />
 
         <div class="btn_img">
           <a href="#submit-now"
-            ><img src="images/move-btn.png" alt="button"
+            ><img src="images/move-btn.webp" alt="button"
           /></a>
         </div>
       </section>
@@ -154,7 +154,7 @@
     <section class="form_section" id="submit-now">
       <div class="price">
         <div class="img_price">
-          <img src="images/top-form.jpg" alt="" />
+          <img src="images/top-form.webp" alt="" />
         </div>
       </div>
 
@@ -267,6 +267,9 @@
           <!-- هنا الكود -->
           <input type="hidden" name="Agent Code" value="m50" />
 
+
+          <input id="KeyLand" type="hidden" name="KeyLand" value="" />
+
           <div class="div_btn">
             <button id="btnSubmit" class="btn" type="submit">
               اﻃﻠب <span>الأن</span>
@@ -306,7 +309,7 @@
     <script src="js/swiper.js"></script>
 
     <script>
-      const swiper = new Swiper(".mySwiper", {
+      const swiper1 = new Swiper(".mySwiper1", {
         slidesPerView: 1,
         loop: true, // خليه false عشان ما يلفش لو صورة واحدة بس
         navigation: {
@@ -321,7 +324,30 @@
       });
 
       // إخفاء الأسهم تلقائي لو مفيش غير سلايد واحدة
-      if (swiper.slides.length <= 1) {
+      if (swiper1.slides.length <= 1) {
+        document
+          .querySelectorAll(".swiper-button-next, .swiper-button-prev")
+          .forEach((el) => (el.style.display = "none"));
+      }
+    </script>
+
+        <script>
+      const swiper2 = new Swiper(".mySwiper2", {
+        slidesPerView: 1,
+        loop: true, // خليه false عشان ما يلفش لو صورة واحدة بس
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        autoplay: {
+          // احذف البلوك ده لو مش عايز تشغيل تلقائي
+          delay: 4000,
+          disableOnInteraction: false,
+        },
+      });
+
+      // إخفاء الأسهم تلقائي لو مفيش غير سلايد واحدة
+      if (swiper2.slides.length <= 1) {
         document
           .querySelectorAll(".swiper-button-next, .swiper-button-prev")
           .forEach((el) => (el.style.display = "none"));

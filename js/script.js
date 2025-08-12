@@ -23,8 +23,51 @@ async function setClientCity() {
   }
 }
 
+/* =====================   فنكشن عشان تعمل ال key  ===================== */
+let __orderCtr = 0;
+
+function generateOrderId() {
+  const d = new Date();
+  // تاريخ/وقت UTC عشان ما يحصلش لخبطة فروقات التوقيت
+  const YY = String(d.getUTCFullYear()).slice(-2);
+  const MM = String(d.getUTCMonth() + 1).padStart(2, '0');
+  const DD = String(d.getUTCDate()).padStart(2, '0');
+  const hh = String(d.getUTCHours()).padStart(2, '0');
+  const mm = String(d.getUTCMinutes()).padStart(2, '0');
+  const ss = String(d.getUTCSeconds()).padStart(2, '0');
+  const ms = String(d.getUTCMilliseconds()).padStart(3, '0');
+
+  // عدّاد جلسة: يضمن عدم تكرار داخل نفس الملي ثانية
+  __orderCtr = (__orderCtr + 1) & 0xFFF; // 0..4095
+  const ctr = __orderCtr.toString(36).padStart(3, '0'); // 3 خانات base36
+
+  // عشوائية قوية 48-bit (6 بايت) → base36 مختصرة
+  let rand;
+  if (window.crypto && crypto.getRandomValues) {
+    const buf = new Uint8Array(6);
+    crypto.getRandomValues(buf);
+    rand = Array.from(buf, b => b.toString(36).padStart(2, '0')).join('').slice(0, 10);
+  } else {
+    rand = Math.random().toString(36).slice(2, 12);
+  }
+
+  // الشكل النهائي: سهل القراءة والفرز حسب التاريخ
+  // مثال: ORD-250812_143522.097_00a-3k0xq1y9fz
+  return `ORD-${YY}_${MM}_${DD}_${hh}${mm}${ss}.${ms}_${ctr}-${rand}`;
+}
+
+
+
 /* =====================   التحقق من النموذج وإرساله   ===================== */
 document.addEventListener('DOMContentLoaded', () => {
+
+     const keyLandInput = document.getElementById('KeyLand');
+
+    if (keyLandInput) {
+    keyLandInput.value = generateOrderId();
+  }
+
+
   /* عناصر النموذج */
   const nameInput     = document.getElementById('text');      // الاسم
   const phoneInput    = document.getElementById('password');  // رقم الهاتف

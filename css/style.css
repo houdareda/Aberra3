@@ -104,7 +104,7 @@ input, button{
 /* Start hero Section */
 
 .hero .content{
-  background: url(../images/bg-hero.jpg);
+  background: url(../images/bg-hero.webp);
   background-size: cover;
   background-position: bottom;
   padding-top: 10px;
@@ -119,35 +119,34 @@ input, button{
 .hero ul li.white{
   background: #FFFFFF;
   color: #C13AE4;
-  margin: 0 5% 7px auto;
+  margin: 0 3% 7px auto;
   border-radius: 0 20px 20px 0;
 }
 .hero ul li.orange{
   background:linear-gradient(to right, #F43918, #F57B1B);
   color: #fff;
-  margin: 0 auto 7px 5%;
+  margin: 0 auto 7px 3%;
   border-radius: 20px 0 0 20px;
 }
 .hero ul li.last{
   font-size: 4.6vw;
 }
-.hero ul li.gray p{
-  background: linear-gradient( #F43E18, #F6721B); /* الألوان اللي انت عايزها */
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+
 
 
 /* ==========  Responsive Design  ========== */
 /* ==========  sm ≥ 576px  ========== */
 @media (min-width:576px){
-  .hero ul li.gray,
+  .hero ul li.orange,
   .hero ul li.white{
     border-radius: 20px;
     margin: 0 auto 10px;
     width: 80%;
     font-size: 4vw;
   }
+  .hero ul li.last{
+  font-size: 3.8vw;
+}
 }
 
 /* ==========  md ≥ 768px  ========== */
@@ -166,11 +165,15 @@ input, button{
 .hero{
   width: 50%;
 }
-  .hero ul li.gray,
+  .hero ul li.orange ,
   .hero ul li.white{
-  font-size: 24px;
+  font-size: 26px;
       width: 90%;
 }
+.hero ul li.last{
+  font-size: 23px;
+} 
+
 
 
 }
@@ -191,7 +194,7 @@ input, button{
 /* Start results Section */
 
 .results{
-  background: url(../images/bg-result.jpg);
+  background: url(../images/bg-result.webp);
   background-size: cover;
   background-position: bottom;
   text-align: center;
@@ -257,8 +260,11 @@ input, button{
   width: 50%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   padding: 30px 0;
+}
+.results .swiper h3{
+  font-size: 20px;
 }
 }
 
@@ -328,14 +334,29 @@ input, button{
 
   }
   .doctor .text{
-    top: 32vw;
+    top: 40vw;
+  }
+
+  .doctor .text h4{
+    font-size: 24px;
+  }
+  .doctor .text h5{
+    font-size: 22px;
+  }
+  .doctor .text .save{
+    margin: 20px auto;
   }
 
 }
 
 /* ==========  xl ≥ 1200px  ========== */
-@media (min-width:1200px){
-
+@media (min-width:1300px){
+  .doctor .text .save{
+    margin: 40px auto;
+  }
+    .doctor .text{
+    top: 42vw;
+  }
 }
 
 /* End doctor Section */
@@ -377,6 +398,11 @@ input, button{
 @media (min-width:992px){
   .how_work{
     width: 50%;
+  }
+  .img_how_work{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
   }
 
 }
@@ -622,7 +648,7 @@ input, button{
 
 
 body.thanks_page_page {
-  background: url(../images/thanks.jpg) center/cover;
+  background: url(../images/thanks.webp) center/cover;
   min-height: 100vh;
 }
 
